@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-compatible" content="ie=edge">
+  <title>Trilha de Estudos</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <button class="nav-btn" data-path="/assuntos">assuntos</button>
+    <button class="nav-btn" data-path="/prazos">prazos e eventos</button>
+    <button class="nav-btn" data-path="/pomodoro">pomodoro</button>
+  </nav>
+  
+  <main id="app" class="container">
+    <section class="login-tela">
+      <div class="botao-login" href="logar">
+        <form class="login" action="">
+          <label>
+            Gmail
+            <input type="text" for="gmail" id="nome" name="gmail">
+          </label>
+          <label>
+            senha
+            <input type="text" for="senha" id="senha" name="senha">
+          </label>
+        <button type="submit" id="logar">logar</button>
+        <a class="cadastrar" href="cadast">cadastrar</a>
+        </form>
+      </div>
+    </section>
+    <!--esse main ai é onde vai ser o conteudo
+    é onde vai ser alterado o innerHtml dele-->
+  </main>
+  <script src="script.js" defer></script>
+</body>
+</html>
+
+
+
+<!-- prazo precisa de... titulo => começando dia: 0 até dia 11 || e evento precisa... titulo -> mes -> dia          
+             
+<section class="marcar-Agenda">
+  <h2>Informe a agenda do evento</h2>
+  <form class="opcao-select" action="">
+    <label>
+      Nome
+      <input type="text" for="agenda" id="nomeA" name="nomeA">
+    </label>
+    <label class="inicio">
+      De
+      <ul class="marcar-dia agenda">
+      Dia
+        <li> <a class="data dia inicio" href="inicio1">1</a> </li>
+        <li> <a class="data dia inicio" href="inicio2">2</a> </li>
+        <li> <a class="data dia inicio" href="inicio3">3</a> </li>
+        <li> <a class="data dia inicio" href="inicio4">4</a> </li>
+        <li> <a class="data dia inicio" href="inicio5">5</a> </li>
+        <li> <a class="data dia inicio" href="inicio6">6</a> </li>
+        <li> <a class="data dia inicio" href="inicio7">7</a> </li>
+        <li> <a class="data dia inicio" href="inicio8">8</a> </li>
+        <li> <a class="data dia inicio" href="inicio9">9</a> </li>
+        <li> <a class="data dia inicio" href="inicio10">10</a> </li>
+        <li> <a class="data dia inicio" href="inicio11">11</a> </li>
+        <li> <a class="data dia inicio" href="inicio12">12</a> </li>
+        <li> <a class="data dia inicio" href="inicio13">13</a> </li>
+        <li> <a class="data dia inicio" href="inicio14">14</a> </li>
+        <li> <a class="data dia inicio" href="inicio15">15</a> </li>
+        <li> <a class="data dia inicio" href="inicio16">16</a> </li>
+        <li> <a class="data dia inicio" href="inicio17">17</a> </li>
+        <li> <a class="data dia inicio" href="inicio18">18</a> </li>
+        <li> <a class="data dia inicio" href="inicio19">19</a> </li>
+        <li> <a class="data dia inicio" href="inicio20">20</a> </li>
+        <li> <a class="data dia inicio" href="inicio21">21</a> </li>
+        <li> <a class="data dia inicio" href="inicio22">22</a> </li>
+        <li> <a class="data dia inicio" href="inicio23">23</a> </li>
+        <li> <a class="data dia inicio" href="inicio24">24</a> </li>
+        <li> <a class="data dia inicio" href="inicio25">25</a> </li>
+        <li> <a class="data dia inicio" href="inicio26">26</a> </li>
+        <li> <a class="data dia inicio" href="inicio27">27</a> </li>
+        <li> <a class="data dia inicio" href="inicio28">28</a> </li>
+        <li> <a class="data dia inicio" href="inicio29">29</a> </li>
+        <li> <a class="data dia inicio" href="inicio30">30</a> </li>
+        <li> <a class="data dia inicio" href="inicio31">31</a> </li>
+      </ul>
+      <ul class="marcar-mes agenda">
+      Mes
+        <li> <a class="data mes inicio" href="inicio1">1</a> </li>
+        <li> <a class="data mes inicio" href="inicio2">2</a> </li>
+        <li> <a class="data mes inicio" href="inicio3">3</a> </li>
+        <li> <a class="data mes inicio" href="inicio4">4</a> </li>
+        <li> <a class="data mes inicio" href="inicio5">5</a> </li>
+        <li> <a class="data mes inicio" href="inicio6">6</a> </li>
+        <li> <a class="data mes inicio" href="inicio7">7</a> </li>
+        <li> <a class="data mes inicio" href="inicio8">8</a> </li>
+        <li> <a class="data mes inicio" href="inicio9">9</a> </li>
+        <li> <a class="data mes inicio" href="inicio10">10</a> </li>
+        <li> <a class="data mes inicio" href="inicio11">11</a> </li>
+        <li> <a class="data mes inicio" href="inicio12">12</a> </li>
+      </ul>
+    </label>
+    <button type="submit" id="marcar">marcar</button>
+  </form>
+</section>                     -->
+
+
+
+<!--
+<section class="login">
+  <form>
+    <label>
+      <input>
+      <button></button>
+    </label>
+  </form>
+</section>
+
+-->
+
+
+
+
+<!-- precisa ter topico-roteiro. topico-definicoes
+ pode adicionar topico, e ele tem o conteudo
+ ent na pagina n precisa ter algo. precisa poder ADICIONAR algo
+ e esse algo vai ter o subalgo ali com oq ja tinha antes +
+ com childreen, oq? childreen... divh2 ai mais e mais
+
+ só uma pagina ja serve oq poderia ter pra estudo saca
+-->
+
+<!--
+tudo definido
+
+roteiros vao ser separados em: roteiros, definicoes, anotacoes
+prazos e agendas vao conter: datas pra algo. ou ate qnd vc tem q terminar
+pomodo vai ter opcoes: 25/15, 25/5, 50/10, 90/20 ou separado
+tipo tempo de ciclos e descanso separado
+
+e todos precisam ter algo explicando ai as coisa
+ai cada section de tudo vai ter um class
+
+//class dos section dos divs: roteiro:
+explicacao, adicionar(ativo e topico)(e aparecer no conteudo obvio),
+tmb tem q ter o class TOPICO, pra separar cada assunto pra cada
+adicionado
+
+prazos: explicacao, adicionar(nome e data)(e se é prazo de tanto
+ate tanto ou se é hora marcada)
+
+pomodoro: opcoes(botoes) de descanso e ciclo. e tmp na tela
+ai vc usa o of pra ser de 0 ate tal pros dois
+eai for c com setimeout com 1000 mls
+
+
+
+e o / vai ser a opcao de qual botao vc vai clicar
+-->
+
+
+<!--                                       
+
+<section class="cadastrar-tela">
+  <div class="botao-cadastrar" href="cadastrar">
+    cadastre-se
+    <form class="cadastrar-form" action="">
+      <label>
+        Gmail
+        <input type="text" for="gmail" id="nome" name="gmail">
+      </label>
+      <label>
+        senha
+        <input type="text" for="senha" id="senha" name="senha">
+      </label>
+    <button type="submit" id="cadastrar">logar</button>
+    </form>
+  </div>
+</section>                                     -->

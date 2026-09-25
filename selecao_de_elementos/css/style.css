@@ -1,0 +1,241 @@
+/* === RESET E BASE MINIMALISTA === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+  background-color: #FAF8F5; 
+  color: #3D3D3D; 
+  line-height: 1.5;
+}
+
+ul, dl {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* === MENU === */
+.menu {
+  background-color: #F2EDE8; 
+  padding: 15px 0;
+  border-bottom: 1px solid #E0D8CF;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.menu a {
+  color: #8B5E3C; 
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.menu a:hover {
+  color: #C85A24; 
+}
+
+/* === SEÇÕES GERAIS === */
+.grid-section, .grid-selection {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.titulo, .grid-section h1, .grid-selection h1 {
+  font-size: 1.5rem; 
+  font-weight: 500; 
+  color: #8B5E3C;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #C85A24; 
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* === SEÇÃO INGLÊS (LAYOUT AJUSTADO) === */
+.ingles {
+  display: grid;
+  /* Imagem vertical grande (320px) e Texto (400px) */
+  grid-template-columns: 320px 400px;
+  gap: 40px;
+  align-items: start;
+  justify-content: center; 
+}
+
+.ingles .titulo {
+  grid-column: 1 / -1;
+}
+
+/* Container das Imagens (Sem seguir a tela, scroll normal) */
+.ingles ul {
+  height: 450px; /* Altura vertical grande */
+  overflow-y: auto; /* Scroll suave e normal */
+  scrollbar-width: none; 
+}
+
+.ingles ul::-webkit-scrollbar {
+  display: none; 
+}
+
+.ingles ul li {
+  height: 450px; 
+  width: 320px;
+  margin-bottom: 15px; 
+}
+
+.ingles ul img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px; 
+}
+
+/* Área de Explicação (Mais vertical) */
+.ingles-explicacao {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+}
+
+.ingles-explicacao section {
+  background: #FFF;
+  padding: 15px; 
+  border-radius: 4px;
+  border-left: 2px solid #C85A24; 
+}
+
+.ingles-explicacao h2 {
+  font-size: 1rem; 
+  color: #C85A24;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.ingles-explicacao p {
+  font-size: 0.85rem; 
+  margin-bottom: 8px;
+  color: #5A5A5A;
+}
+
+/* === FAQ === */
+#faq dt {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #8B5E3C;
+  margin-top: 20px;
+}
+
+#faq dt::before {
+  content: '— '; 
+  color: #C85A24;
+}
+
+#faq dd {
+  margin-top: 5px;
+  padding-left: 15px;
+  font-size: 0.85rem;
+  color: #5A5A5A;
+}
+
+/* === CONTATO (MAPA PEQUENO) === */
+#contato {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.mapa {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  background: #FFF;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.mapa img {
+  width: 180px; 
+  height: 130px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.dados li {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  color: #5A5A5A;
+}
+
+.dados li::before {
+  content: '· '; 
+  color: #C85A24;
+  font-weight: bold;
+}
+
+/* === FOOTER === */
+.copy {
+  background-color: #F2EDE8;
+  color: #8B5E3C;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+  font-size: 0.8rem;
+  border-top: 1px solid #E0D8CF;
+}
+
+/* === RESPONSIVIDADE (Celulares) === */
+@media (max-width: 750px) {
+  .menu ul {
+    gap: 15px;
+  }
+
+  .menu a {
+    font-size: 0.8rem;
+  }
+
+  .ingles {
+    grid-template-columns: 1fr;
+    justify-content: start; 
+  }
+
+  .ingles ul {
+    height: auto;
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto; 
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+
+  .ingles ul li {
+    /* No celular, reduz um pouco para caber na tela */
+    width: 220px;
+    height: 300px;
+    flex-shrink: 0; 
+  }
+
+  .ingles-explicacao section {
+    padding: 12px;
+  }
+
+  .mapa {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mapa img {
+    width: 100%;
+    max-width: 250px;
+  }
+}

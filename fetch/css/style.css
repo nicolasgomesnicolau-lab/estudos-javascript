@@ -1,0 +1,129 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  padding: 20px;
+  color: #333;
+}
+
+.CEP {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 300px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.acionado {
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.botao-imagem {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.botao-imagem:hover {
+  background-color: #218838;
+}
+
+.bit {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 300px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.bit form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bit label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.bit button {
+  padding: 8px;
+  background-color: #f7931a; /* Cor clássica do Bitcoin (Laranja) */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.bit button:hover {
+  background-color: #e8820d;
+}
+
+.piada {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 320px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.piada form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.piada-aleatoria {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#piada-aleatoria {
+  padding: 8px 12px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#piada-aleatoria:hover {
+  background-color: #5a6268;
+}

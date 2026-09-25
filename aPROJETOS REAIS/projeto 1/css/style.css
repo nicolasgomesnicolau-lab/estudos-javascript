@@ -1,0 +1,1662 @@
+/* =========================================================
+   TRILHA DE ESTUDOS
+   Dashboard divertido / moderno / reativo
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+    --bg: #0f1020;
+    --bg-soft: #17182c;
+    --card: #1d1f38;
+    --card-hover: #252849;
+
+    --primary: #8b5cf6;
+    --primary-light: #a78bfa;
+
+    --secondary: #22d3ee;
+    --green: #34d399;
+    --yellow: #facc15;
+    --red: #fb7185;
+
+    --text: #f8fafc;
+    --text-soft: #b8bdd3;
+    --text-dark: #151525;
+
+    --border: rgba(255, 255, 255, 0.08);
+
+    --radius: 18px;
+    --radius-small: 12px;
+
+    --shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+
+    --transition:
+        180ms cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: 'Nunito', sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(139, 92, 246, .16),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(34, 211, 238, .10),
+            transparent 30%
+        ),
+        var(--bg);
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BARRA DE NAVEGAÇÃO
+   ========================================================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    padding: 18px 20px;
+
+    background: rgba(15, 16, 32, .78);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* botões da navbar */
+
+.nav-btn {
+    position: relative;
+
+    border: none;
+    outline: none;
+
+    padding: 11px 18px;
+
+    border-radius: 12px;
+
+    background: transparent;
+
+    color: var(--text-soft);
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition),
+        color var(--transition),
+        background var(--transition);
+}
+
+.nav-btn::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 5px;
+
+    width: 0;
+    height: 3px;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    transform: translateX(-50%);
+
+    transition: width var(--transition);
+}
+
+.nav-btn:hover {
+    color: white;
+
+    background: rgba(139, 92, 246, .12);
+
+    transform: translateY(-2px);
+}
+
+.nav-btn:hover::after {
+    width: 55%;
+}
+
+.nav-btn:active {
+    transform: scale(.94);
+}
+
+
+/* =========================================================
+   APP / PÁGINAS
+   ========================================================= */
+
+#app {
+    width: 100%;
+}
+
+.page-content {
+    width: min(1100px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 55px 0 80px;
+
+    animation: pageEnter .55s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* entrada das páginas */
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================================
+   TÍTULOS
+   ========================================================= */
+
+.page-content > h1 {
+    position: relative;
+
+    display: inline-block;
+
+    margin-bottom: 35px;
+
+    font-size: clamp(2rem, 5vw, 3.5rem);
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+}
+
+.page-content > h1::after {
+    content: "";
+
+    position: absolute;
+
+    left: 5px;
+    bottom: -8px;
+
+    width: 45%;
+    height: 5px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    animation: titleLine .8s ease both;
+}
+
+@keyframes titleLine {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 45%;
+        opacity: 1;
+    }
+}
+
+.subtitulo {
+    margin-bottom: 12px;
+
+    font-size: 1.4rem;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   TEXTO / EXPLICAÇÕES
+   ========================================================= */
+
+.explicacao {
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background: rgba(29, 31, 56, .72);
+
+    box-shadow: var(--shadow);
+
+    animation: cardEnter .55s .08s both;
+}
+
+.explicacao p {
+    margin-top: 8px;
+
+    color: var(--text-soft);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DOS CARDS
+   ========================================================= */
+
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   HOME
+   ========================================================= */
+
+.home {
+    text-align: center;
+}
+
+.home > h1 {
+    display: block;
+}
+
+.home-content {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-top: 20px;
+}
+
+.home-content .explicacao {
+    grid-column: 1 / -1;
+}
+
+
+/* cards */
+
+.home-card {
+    position: relative;
+
+    padding: 28px;
+
+    min-height: 190px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: left;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background: var(--card);
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform .25s cubic-bezier(.2,.8,.2,1),
+        background .25s,
+        border .25s,
+        box-shadow .25s;
+}
+
+
+/* brilho */
+
+.home-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+
+    right: -60px;
+    top: -60px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    opacity: .08;
+
+    transition:
+        transform .4s,
+        opacity .4s;
+}
+
+.home-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+
+    background: var(--card-hover);
+
+    border-color: rgba(139, 92, 246, .35);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, .35),
+        0 0 30px rgba(139, 92, 246, .10);
+}
+
+.home-card:hover::before {
+    transform: scale(2);
+    opacity: .15;
+}
+
+.home-card:active {
+    transform: translateY(-3px) scale(.97);
+}
+
+.home-card h2 {
+    margin-bottom: 10px;
+
+    font-size: 1.35rem;
+
+    font-weight: 900;
+}
+
+.home-card p {
+    color: var(--text-soft);
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   LINKS GERAIS
+   ========================================================= */
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   BOTÕES / LINKS INTERATIVOS
+   ========================================================= */
+
+.ativo,
+#addT,
+.agenda-opcao,
+.ciclos a,
+.descanso a,
+.notes,
+#marcar,
+#marcarA,
+button[type="submit"] {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: var(--radius-small);
+
+    background: var(--primary);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+.ativo:hover,
+#addT:hover,
+.agenda-opcao:hover,
+.ciclos a:hover,
+.descanso a:hover,
+.notes:hover,
+#marcar:hover,
+#marcarA:hover,
+button[type="submit"]:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(139, 92, 246, .28);
+
+    background: var(--primary-light);
+}
+
+.ativo:active,
+#addT:active,
+.agenda-opcao:active,
+.ciclos a:active,
+.descanso a:active,
+.notes:active,
+button[type="submit"]:active {
+    transform: scale(.94);
+}
+
+
+/* =========================================================
+   ASSUNTOS
+   ========================================================= */
+
+.assuntos,
+.prazos-evento,
+.pomodoro {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* botão adicionar */
+
+.adicionar-topico {
+    display: flex;
+
+    justify-content: center;
+
+    padding: 5px;
+}
+
+
+/* =========================================================
+   TÓPICOS
+   ========================================================= */
+
+.topicos-feitos {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(260px, 1fr)
+    );
+
+    gap: 18px;
+}
+
+
+/* tópico criado */
+
+.topicos-feitos > .topico {
+    padding: 22px;
+
+    border-radius: var(--radius);
+
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    box-shadow: var(--shadow);
+
+    animation: topicPop .45s cubic-bezier(.2,.9,.2,1);
+
+    transition:
+        transform .2s,
+        background .2s;
+}
+
+.topicos-feitos > .topico:hover {
+    transform: translateY(-5px);
+
+    background: var(--card-hover);
+}
+
+@keyframes topicPop {
+    from {
+        opacity: 0;
+        transform: scale(.85) rotate(-2deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+
+/* =========================================================
+   FORMULÁRIO DE TÓPICO
+   ========================================================= */
+
+.topico,
+.form-T,
+.roteiro,
+.definicoes,
+.anotacoes,
+.marcar-prazo,
+.marcar-Agenda {
+    width: 100%;
+}
+
+.form-T,
+.roteiro-form,
+.definicoes-form,
+.anotacoes-form,
+.opcao-select {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding: 22px;
+
+    border-radius: var(--radius);
+
+    background: rgba(29, 31, 56, .9);
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+
+    animation: formEnter .35s ease both;
+}
+
+@keyframes formEnter {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+label {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    color: var(--text-soft);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 2px solid transparent;
+
+    outline: none;
+
+    border-radius: 12px;
+
+    background: #111225;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    transition:
+        border .2s,
+        box-shadow .2s,
+        transform .2s;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #696e89;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: rgba(139, 92, 246, .25);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(139, 92, 246, .12);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   LISTAS DE OPÇÕES
+   ========================================================= */
+
+.agenda,
+.ciclos,
+.descanso,
+.tipos-notas,
+.marcar-dia,
+.marcar-mes {
+    list-style: none;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+/* opção */
+
+.agenda li,
+.ciclos li,
+.descanso li,
+.tipos-notas li,
+.marcar-dia li,
+.marcar-mes li {
+    list-style: none;
+}
+
+
+/* =========================================================
+   BOTÕES DE AGENDA
+   ========================================================= */
+
+.marcar {
+    display: flex;
+
+    justify-content: center;
+}
+
+.marcar .agenda {
+    justify-content: center;
+}
+
+.agenda-opcao {
+    background: linear-gradient(
+        135deg,
+        var(--secondary),
+        #3b82f6
+    );
+}
+
+.agenda-opcao:hover {
+    background: linear-gradient(
+        135deg,
+        #67e8f9,
+        #60a5fa
+    );
+}
+
+
+/* =========================================================
+   DATAS
+   ========================================================= */
+
+.data {
+    min-width: 42px;
+    min-height: 42px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px;
+
+    border-radius: 10px;
+
+    background: #242640;
+
+    color: var(--text-soft);
+
+    font-weight: 800;
+
+    border: 1px solid var(--border);
+
+    transition:
+        transform .15s,
+        background .15s,
+        color .15s;
+}
+
+.data:hover {
+    transform: translateY(-3px);
+
+    background: #32355a;
+
+    color: white;
+}
+
+
+/* selecionado */
+
+.data.ativo {
+    background: var(--green);
+
+    color: #07140f;
+
+    border-color: var(--green);
+
+    box-shadow:
+        0 7px 20px rgba(52, 211, 153, .25);
+
+    animation: selectedPop .25s ease;
+}
+
+@keyframes selectedPop {
+    0% {
+        transform: scale(.8);
+    }
+
+    70% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   NOTAS
+   ========================================================= */
+
+.tipos-notas {
+    margin-top: 18px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--border);
+
+    animation: notesAppear .35s ease;
+}
+
+@keyframes notesAppear {
+    from {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        max-height: 300px;
+        transform: translateY(0);
+    }
+}
+
+.notes {
+    background: #292c4b;
+
+    color: var(--text-soft);
+}
+
+.notes:hover {
+    background: var(--primary);
+
+    color: white;
+}
+
+
+/* =========================================================
+   ROTEIRO / DEFINIÇÕES / ANOTAÇÕES
+   ========================================================= */
+
+.roteiro,
+.definicoes,
+.anotacoes {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: var(--radius);
+
+    background: #17192f;
+
+    border: 1px solid var(--border);
+
+    animation: sectionSlide .4s ease;
+}
+
+.roteiro h2,
+.definicoes h2,
+.anotacoes h2 {
+    margin-bottom: 18px;
+
+    font-weight: 900;
+
+    text-transform: capitalize;
+}
+
+@keyframes sectionSlide {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* conteúdo criado */
+
+.conteudo-roteiro,
+.conteudo-definicoes,
+.anotacoes > div {
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+
+    padding: 13px 15px;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    background: #232540;
+
+    color: var(--text-soft);
+
+    border-left: 4px solid var(--primary);
+
+    animation: contentPop .3s ease;
+}
+
+.conteudo-roteiro p,
+.conteudo-definicoes p {
+    margin: 0;
+}
+
+@keyframes contentPop {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================================
+   BOTÃO PRONTO
+   ========================================================= */
+
+.terminar-tarefa {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 15px;
+}
+
+#fechar {
+    background: var(--green);
+
+    color: #07140f;
+}
+
+#fechar:hover {
+    background: #6ee7b7;
+
+    box-shadow:
+        0 10px 25px rgba(52, 211, 153, .25);
+}
+
+
+/* =========================================================
+   PRAZOS / AGENDAS
+   ========================================================= */
+
+.agendas-feita {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(260px, 1fr)
+    );
+
+    gap: 18px;
+}
+
+
+/* qualquer agenda criada dinamicamente */
+
+.agendas-feita > div {
+    padding: 20px;
+
+    border-radius: var(--radius);
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+
+    animation: agendaEnter .45s ease both;
+
+    transition:
+        transform .2s,
+        background .2s;
+}
+
+.agendas-feita > div:hover {
+    transform: translateY(-5px);
+
+    background: var(--card-hover);
+}
+
+.agendas-feita h2 {
+    margin-bottom: 12px;
+
+    font-weight: 900;
+}
+
+.prazo-feito,
+.Agenda-feito {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    color: var(--text-soft);
+
+    line-height: 1.5;
+}
+
+@keyframes agendaEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================================
+   AVISOS
+   ========================================================= */
+
+.aviso-nao-marcado {
+    padding: 12px 15px;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    background: rgba(251, 113, 133, .12);
+
+    border: 1px solid rgba(251, 113, 133, .3);
+
+    color: var(--red);
+
+    font-weight: 800;
+
+    animation:
+        warningEnter .3s ease,
+        warningExit .4s 1.6s forwards;
+}
+
+@keyframes warningEnter {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes warningExit {
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+
+
+.pomodoro {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 25px;
+
+    align-items: start;
+}
+
+
+/* =========================
+   OPÇÕES DO POMODORO
+========================= */
+
+.opcoes-pomodoro {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding: 25px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    box-shadow:
+        0 15px 50px
+        rgba(0, 0, 0, 0.2);
+
+    animation:
+        cardIntro 0.5s ease both;
+}
+
+
+/* =========================
+   CICLOS / DESCANSOS
+========================= */
+
+.ciclos,
+.descanso {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+}
+
+
+/* =========================
+   BOTÕES DO POMODORO
+========================= */
+
+.ciclos li a,
+.descanso li a {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 52px;
+
+    padding: 12px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    color: #c5c9d7;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.ciclos li a:hover,
+.descanso li a:hover {
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(124, 131, 255, 0.12);
+
+    border-color:
+        rgba(124, 131, 255, 0.4);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.2);
+
+    color: white;
+}
+
+
+/* =========================
+   OPÇÃO SELECIONADA
+========================= */
+
+.ciclos.selecionado li a {
+    opacity: 0.45;
+}
+
+.ciclos.selecionado li a.ativo {
+    opacity: 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c83ff,
+            #656cff
+        );
+
+    border-color:
+        rgba(150, 155, 255, 0.6);
+
+    box-shadow:
+        0 8px 30px
+        rgba(124, 131, 255, 0.25);
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================
+   DESCANSO DINÂMICO
+========================= */
+
+.opcoes-pomodoro > .descanso {
+    animation:
+        descansoIntro
+        0.45s
+        cubic-bezier(.2, .8, .2, 1)
+        both;
+}
+
+
+/* =========================
+   POMODORO RODANDO
+========================= */
+
+.rodando-pomodoro {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 500px;
+
+    padding: 40px;
+
+    border:
+        1px solid
+        rgba(124, 131, 255, 0.15);
+
+    border-radius: 25px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 131, 255, 0.08),
+            transparent 65%
+        ),
+        rgba(255, 255, 255, 0.025);
+
+    overflow: hidden;
+
+    animation:
+        pomodoroIntro
+        0.6s
+        cubic-bezier(.2, .8, .2, 1)
+        both;
+}
+
+
+/* =========================================================
+   POMODORO RODANDO
+   ========================================================= */
+
+.rodando-pomodoro {
+    min-height: 500px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, .16),
+            transparent 60%
+        ),
+        var(--card);
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+
+    animation: pomodoroEnter .7s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes pomodoroEnter {
+    from {
+        opacity: 0;
+        transform: scale(.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.rodando-pomodoro h1 {
+    font-size: 2rem;
+
+    font-weight: 900;
+}
+
+.rodando-pomodoro h2 {
+    margin-top: 5px;
+
+    color: var(--secondary);
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+}
+
+
+/* relógio */
+
+.conometro {
+    width: 260px;
+    height: 260px;
+
+    margin-top: 35px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #202340 58%,
+            transparent 59%
+        );
+
+    border: 7px solid var(--primary);
+
+    box-shadow:
+        0 0 0 10px rgba(139, 92, 246, .08),
+        0 0 50px rgba(139, 92, 246, .18);
+
+    font-size: 3.5rem;
+
+    font-weight: 900;
+
+    font-variant-numeric: tabular-nums;
+
+    animation: clockPulse 2s ease-in-out infinite;
+}
+
+@keyframes clockPulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 10px rgba(139, 92, 246, .08),
+            0 0 50px rgba(139, 92, 246, .18);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 16px rgba(139, 92, 246, .04),
+            0 0 70px rgba(139, 92, 246, .28);
+    }
+}
+
+
+/* =========================================================
+   FIM DO POMODORO
+   ========================================================= */
+
+.fim-ciclo {
+    margin-top: 25px;
+}
+
+#Descanso {
+    padding: 15px 30px;
+
+    background: var(--green);
+
+    color: #07140f;
+
+    font-size: 1rem;
+}
+
+#Descanso:hover {
+    background: #6ee7b7;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   LOGIN / CADASTRO
+   ========================================================= */
+
+.login,
+.cadastrar-tela {
+    width: min(430px, calc(100% - 40px));
+
+    margin: 80px auto;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+
+    animation: loginEnter .6s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes loginEnter {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.login h1,
+.cadastrar-tela h1 {
+    margin-bottom: 25px;
+
+    text-align: center;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .home-content {
+        grid-template-columns: 1fr;
+    }
+
+    .home-content .explicacao {
+        grid-column: auto;
+    }
+
+    .navbar {
+        justify-content: flex-start;
+
+        overflow-x: auto;
+
+        scrollbar-width: none;
+    }
+
+    .navbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .page-content {
+        width: min(100% - 25px, 700px);
+
+        padding-top: 35px;
+    }
+
+    .conometro {
+        width: 220px;
+        height: 220px;
+
+        font-size: 2.8rem;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .navbar {
+        padding: 12px 10px;
+    }
+
+    .nav-btn {
+        padding: 10px 12px;
+
+        font-size: 13px;
+    }
+
+    .page-content > h1 {
+        font-size: 2.2rem;
+    }
+
+    .explicacao,
+    .home-card,
+    .form-T,
+    .roteiro,
+    .definicoes,
+    .anotacoes,
+    .marcar-prazo,
+    .marcar-Agenda {
+        padding: 18px;
+    }
+
+    .conometro {
+        width: 190px;
+        height: 190px;
+
+        font-size: 2.3rem;
+
+        border-width: 5px;
+    }
+
+    .data {
+        min-width: 38px;
+        min-height: 38px;
+    }
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+/* =========================================================
+   SELEÇÃO DE TEXTO
+   ========================================================= */
+
+::selection {
+    background: var(--primary);
+
+    color: white;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #343752;
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* BARRA ABAIXO DO TÍTULO */
+.page-content > h1::after {
+    content: "";
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 4px;
+    margin-top: 12px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #9b5cff, #27d9ff);
+
+    transform-origin: left;
+    animation: barraEntrando 0.8s ease forwards;
+}
+
+@keyframes barraEntrando {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}

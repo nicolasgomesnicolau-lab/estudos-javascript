@@ -1,0 +1,322 @@
+/* === RESET E BASE MINIMALISTA === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+  background-color: #FAF8F5; 
+  color: #3D3D3D; 
+  line-height: 1.5;
+}
+
+ul, dl {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* === MENU === */
+.menu {
+  background-color: #F2EDE8; 
+  padding: 15px 0;
+  border-bottom: 1px solid #E0D8CF;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.menu a {
+  color: #8B5E3C; 
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.menu a:hover {
+  color: #C85A24; 
+}
+
+/* === SEÇÕES GERAIS === */
+.grid-section, .grid-selection {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Título bem maior e destacado */
+.titulo, .grid-section h1, .grid-selection h1 {
+  font-size: 2.2rem; 
+  font-weight: 600; 
+  color: #8B5E3C;
+  margin-bottom: 35px;
+  border-bottom: 2px solid #C85A24; 
+  display: inline-block;
+  padding-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+/* === SEÇÃO INGLÊS (LAYOUT MAIOR E MAIS VERTICAL) === */
+.ingles {
+  display: grid;
+  grid-template-columns: 360px 440px;
+  gap: 50px;
+  align-items: center; 
+  justify-content: center; 
+}
+
+.ingles .titulo {
+  grid-column: 1 / -1;
+}
+
+/* Container das Imagens: Com Scroll Visível e Clicável */
+.ingles ul {
+  height: 520px; 
+  overflow-y: scroll; 
+  padding-right: 8px;
+  
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #C85A24 #F2EDE8;
+}
+
+/* Chrome, Edge e Safari: Barra de rolagem estilizada */
+.ingles ul::-webkit-scrollbar {
+  width: 10px; 
+}
+
+.ingles ul::-webkit-scrollbar-track {
+  background: #F2EDE8;
+  border-radius: 5px;
+}
+
+.ingles ul::-webkit-scrollbar-thumb {
+  background-color: #C85A24; 
+  border-radius: 5px;
+  border: 2px solid #F2EDE8; 
+}
+
+.ingles ul li {
+  height: 520px; 
+  width: 360px;
+  margin-bottom: 20px; 
+  position: relative;
+  cursor: pointer; 
+}
+
+.ingles ul img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ingles ul li::after {
+  content: 'Clique para ver';
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(200, 90, 36, 0.85);
+  color: #FFF;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.ingles ul li:hover img {
+  transform: scale(1.02); 
+  filter: brightness(1.05); 
+  box-shadow: 0 6px 20px rgba(200, 90, 36, 0.2);
+}
+
+.ingles ul li:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === ÁREA DE EXPLICAÇÃO === */
+.ingles-explicacao {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+}
+
+.ingles-explicacao section {
+  background: #FFF;
+  padding: 20px; 
+  border-radius: 6px;
+  border-left: 3px solid #C85A24; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+/* Por padrão, esconde TODAS as seções de explicação */
+.ingles-explicacao section {
+  display: none;
+}
+
+/* Mostra apenas a seção que possuir a classe .ativo */
+.ingles-explicacao section.ativo {
+  display: block;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ingles-explicacao h2 {
+  font-size: 1.15rem; 
+  color: #C85A24;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.ingles-explicacao p {
+  font-size: 0.9rem; 
+  margin-bottom: 10px;
+  color: #5A5A5A;
+}
+
+/* === FAQ === */
+#faq dt {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #8B5E3C;
+  margin-top: 20px;
+}
+
+#faq dt::before {
+  content: '— '; 
+  color: #C85A24;
+}
+
+#faq dd {
+  margin-top: 5px;
+  padding-left: 15px;
+  font-size: 0.9rem;
+  color: #5A5A5A;
+}
+
+/* === CONTATO (MAPA PEQUENO) === */
+#contato {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.mapa {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  background: #FFF;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.3s ease;
+}
+
+.mapa:hover {
+  box-shadow: 0 4px 15px rgba(139, 94, 60, 0.1); 
+}
+
+.mapa img {
+  width: 200px; 
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.dados li {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: #5A5A5A;
+}
+
+.dados li::before {
+  content: '· '; 
+  color: #C85A24;
+  font-weight: bold;
+}
+
+/* === FOOTER === */
+.copy {
+  background-color: #F2EDE8;
+  color: #8B5E3C;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  font-size: 0.85rem;
+  border-top: 1px solid #E0D8CF;
+}
+
+/* === RESPONSIVIDADE (Celulares) === */
+@media (max-width: 750px) {
+  .menu ul {
+    gap: 15px;
+  }
+
+  .menu a {
+    font-size: 0.8rem;
+  }
+
+  .titulo, .grid-section h1, .grid-selection h1 {
+    font-size: 1.6rem;
+  }
+
+  .ingles {
+    grid-template-columns: 1fr;
+    justify-content: start; 
+  }
+
+  .ingles ul {
+    height: auto;
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto; 
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+
+  .ingles ul li {
+    width: 240px;
+    height: 340px;
+    flex-shrink: 0; 
+  }
+
+  .ingles-explicacao section {
+    padding: 15px;
+  }
+
+  .mapa {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mapa img {
+    width: 100%;
+    max-width: 250px;
+  }
+}
