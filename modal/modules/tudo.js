@@ -27,25 +27,6 @@ InteracaoIMG()
 //apareça a resposta apenas caso vc clique nela.
 //ent vc adiciona uma classe pra mostra basicamente isso
 
-function faqInteracao() {
-  const perguntas = document.querySelectorAll('.js-tabfaq dt')
-
-  if (perguntas.length) {
-
-    function callbackDT(item) {
-      perguntas[item].classList.toggle('ativo')
-    }
-
-    perguntas.forEach((item, posicao) => {
-      item.addEventListener('click', () => {
-        callbackDT(posicao)
-      })
-    })
-
-    console.log(perguntas)
-  }
-}
-
 //tmb é uma pratica comum deixar esses blocos inteiros como se fossem funcoes
 //pra vc só chamar na main
 
